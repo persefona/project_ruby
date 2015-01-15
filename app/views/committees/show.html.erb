@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @committee.name %>
+</p>
+
+<p>
+  <strong>Shortname:</strong>
+  <%= @committee.shortname %>
+</p>
+
+<p>
+  <strong>Number of list:</strong>
+  <%= @committee.number_of_list %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @committee.logo %>
+</p>
+
+<%= link_to 'Edit', edit_committee_path(@committee) %> |
+<%= link_to 'Back', committees_path %>

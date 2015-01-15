@@ -1,0 +1,31 @@
+<h1>Listing distrcts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Voter</th>
+      <th>Invalid vote</th>
+      <th>Ballot</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @distrcts.each do |distrct| %>
+      <tr>
+        <td><%= distrct.number %></td>
+        <td><%= distrct.voter %></td>
+        <td><%= distrct.invalid_vote %></td>
+        <td><%= distrct.ballot %></td>
+        <td><%= link_to 'Show', distrct %></td>
+        <td><%= link_to 'Edit', edit_distrct_path(distrct) %></td>
+        <td><%= link_to 'Destroy', distrct, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Distrct', new_distrct_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @distrct.number %>
+</p>
+
+<p>
+  <strong>Voter:</strong>
+  <%= @distrct.voter %>
+</p>
+
+<p>
+  <strong>Invalid vote:</strong>
+  <%= @distrct.invalid_vote %>
+</p>
+
+<p>
+  <strong>Ballot:</strong>
+  <%= @distrct.ballot %>
+</p>
+
+<%= link_to 'Edit', edit_distrct_path(@distrct) %> |
+<%= link_to 'Back', distrcts_path %>
