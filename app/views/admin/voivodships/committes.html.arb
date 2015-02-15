@@ -1,0 +1,6 @@
+table_for assigns[:voivodship].committees do
+  column :name
+  column :body do |committe|
+    simple_format committe.body
+  end
+end

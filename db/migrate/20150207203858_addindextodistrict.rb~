@@ -1,0 +1,4 @@
+class Addindextodistrict < ActiveRecord::Migration
+  def change
+  end
+end

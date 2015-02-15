@@ -1,4 +1,4 @@
-<%= form_for(@committee) do |f| %>
+<%= form_for(@committee), html: {multipart: true} do |f| %>
   <% if @committee.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@committee.errors.count, "error") %> prohibited this committee from being saved:</h2>
@@ -12,22 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :nazwa %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :shortname %><br>
+    <%= f.label :skrót %><br>
     <%= f.text_field :shortname %>
   </div>
   <div class="field">
-    <%= f.label :number_of_list %><br>
+    <%= f.label :nr_listy%><br>
     <%= f.number_field :number_of_list %>
   </div>
   <div class="field">
     <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
+    <%= f.file_field :logo %>
   </div>
+  <div class="field">
+    <%= f.label :wojewodztwo %><br>
+  
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :Zatwierdź %>
   </div>
 <% end %>

@@ -1,0 +1,8 @@
+class Addindextodistrict < ActiveRecord::Migration
+  def change
+  end
+	add_index :districts, [:voivodship_id], unique: true
+  end
+end
+
+

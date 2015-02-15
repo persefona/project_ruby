@@ -1,3 +1,6 @@
 class Committee < ActiveRecord::Base
-	has_and_belongs_to_many :voivodship
+	 validates_presence_of :name, 
+   validates_lenght_of :name, minimum: 5
+
+	has_and_belongs_to_many :voivodships
 end

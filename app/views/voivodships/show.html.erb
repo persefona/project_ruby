@@ -5,5 +5,13 @@
   <%= @voivodship.name %>
 </p>
 
+<p>
+  <strong>Komitet:</strong>
+	 <% @voivodship.committees.each do |committee| %>
+	  <%= committee.name %>
+	   <% end %>
+</p>
+
+
 <%= link_to 'Edit', edit_voivodship_path(@voivodship) %> |
 <%= link_to 'Back', voivodships_path %>

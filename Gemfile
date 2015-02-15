@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 gem "therubyracer"
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -39,3 +41,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+# Use authentication
+gem 'authlogic'
+# Authorization
+gem 'cancancan', '~> 1.10'
+# Use Polish language
+gem 'polish'
+
+# Upload Files
+gem 'paperclip'

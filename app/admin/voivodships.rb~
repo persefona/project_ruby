@@ -1,0 +1,3 @@
+ActiveAdmin.register Voivodship do
+  permit_params :name
+end

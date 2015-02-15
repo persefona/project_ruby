@@ -72,3 +72,4 @@ class CommitteesController < ApplicationController
       params.require(:committee).permit(:name, :shortname, :number_of_list, :logo)
     end
 end
+

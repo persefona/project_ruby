@@ -1,0 +1,5 @@
+class AddCouncilman < ActiveRecord::Migration
+  def change_table :voivodships do |t|
+	t.integer :councilman
+  end
+end

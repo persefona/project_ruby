@@ -1,5 +1,5 @@
 class VoivodshipsController < ApplicationController
-  before_action :set_voivodship, only: [:show, :edit, :update, :destroy]
+  #before_action :set_voivodship, only: [:show, :edit, :update, :destroy]
 
   # GET /voivodships
   # GET /voivodships.json

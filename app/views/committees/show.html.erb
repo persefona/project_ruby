@@ -1,24 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nazwa:</strong>
   <%= @committee.name %>
 </p>
 
 <p>
-  <strong>Shortname:</strong>
+  <strong>Skrócona nazwa:</strong>
   <%= @committee.shortname %>
 </p>
 
 <p>
-  <strong>Number of list:</strong>
+  <strong>Numer listy:</strong>
   <%= @committee.number_of_list %>
 </p>
 
 <p>
   <strong>Logo:</strong>
   <%= @committee.logo %>
+</p> 
+
+<p>
+  <strong>Wojewodztwo:</strong>
+  <%= @committee.voivodships.each do |voivodship| %>
+  	<%= voivodship.name %>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_committee_path(@committee) %> |
-<%= link_to 'Back', committees_path %>
+
+<%= link_to 'Edycja', edit_committee_path(@committee) %> |
+<%= link_to 'Powrót', committees_path %>
