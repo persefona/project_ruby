@@ -1,2 +1,6 @@
 <h1>Wybory samorządowe - aplikacja wspomagająca zliczanie głosów</h1>
-<%= link_to 'Twój profil', users_path %>
+
+<% if current_user %>
+    <li><%= link_to 'Twój profil', users_path %></li>
+<% end %>
+

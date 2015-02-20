@@ -71,7 +71,7 @@ private
 
     def set_districts 
     	@districts = District.all.map do |district| 
-    		[district.name + ' ' + district.voivodeship.name, district.id]
+    		[district.name + ' ' + district.voivodship.name, district.id]
     	end
     end
 

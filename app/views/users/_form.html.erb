@@ -19,10 +19,7 @@
     <%= f.label :surname %><br>
     <%= f.text_field :surname %>
   </div>
-  <div class="field">
-    <%= f.label :login %><br>
-    <%= f.text_field :login %>
-  </div>
+  
   <div class="field">
     <%= f.label :password %><br>
     <%= f.text_field :password %>
@@ -33,10 +30,7 @@
     <%= f.text_field :email %>
   </div>
 
- <div class="field">
-    <%= f.label :district %><br>
-    <%= f.collection_select :district_id, District.all, :id, :number %>
-  </div>
+
  
 
   <div class="actions">
