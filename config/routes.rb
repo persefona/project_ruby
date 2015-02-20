@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :districts
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :voivodships
 
+  resources :roles
+
   get 'voivodship/index'
 
   get 'voivodship/new'
@@ -25,7 +28,7 @@ Rails.application.routes.draw do
 
 
 
-  root :to => 'voivodship#index'
+  root :to => 'static_pages#home'
   get 'login' => 'user_sessions#new', :as => :login
   get 'logout' => 'user_sessions#destroy', :as => :logout
 

@@ -11,11 +11,11 @@ end
 
   form  do |f|
       f.inputs "Committee" do
-    f.input :name, label: "Nazwa komitetu"
-		f.input :shortname, label: "Skrócona nazwa"
-		f.input :number_of_list, label: "Numer listy"
-		f.input :logo, :as => :file
-	  f.input :voivodships, as: :check_boxes, label: "Województwo"
+      f.input :name, label: "Nazwa komitetu"
+  		f.input :shortname, label: "Skrócona nazwa"
+  		f.input :number_of_list, label: "Numer listy"
+  		f.input :logo, :as => :file
+  	  f.input :voivodships, as: :check_boxes, label: "Województwo"
   end
     f.actions
   end

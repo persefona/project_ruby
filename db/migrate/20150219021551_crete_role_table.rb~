@@ -1,0 +1,4 @@
+class CreteRoleTable < ActiveRecord::Migration
+  def change
+  end
+end

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-#before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_districts, only:[:new, :create, :edit, :update]
+#before_action :set_roles, only:[:new, :create, :edit, :update]
+
 # GET /users
 # GET /users.json
 def index
@@ -15,6 +18,7 @@ end
 def new
 	@user = User.new
 	#@user.build_address
+	
 end
 
 def create
@@ -60,16 +64,31 @@ def destroy
 end
 
 private
-# Use callbacks to share common setup or constraints between actions.
-def set_user
-	@user = User.find(params[:id])
-end
+	# Use callbacks to share common setup or constraints between actions.
+	def set_user
+		@user = User.find(params[:id])
+	end
+
+    def set_districts 
+    	@districts = District.all.map do |district| 
+    		[district.name + ' ' + district.voivodeship.name, district.id]
+    	end
+    end
 
 
-  private
+
+
+    def set_roles 
+    	@roles = Role.all.map do |role| 
+    		[role.name, role.id] 
+    	end
+    end
+
 
     def user_params
-      params.require(:user).permit(:name, :surname, :login,  :password, :email, :role)
+      params.require(:user).permit(:name, :surname, :login,  :password, :password_confirmation, :email, :district_id)
     end
 end
+
+
 

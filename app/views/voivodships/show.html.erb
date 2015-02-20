@@ -6,10 +6,11 @@
 </p>
 
 <p>
-  <strong>Komitet:</strong>
+  <strong>Komitety:</strong>
 	 <% @voivodship.committees.each do |committee| %>
-	  <%= committee.name %>
+	  <li><%= committee.name %> </li> 
 	   <% end %>
+	
 </p>
 
 

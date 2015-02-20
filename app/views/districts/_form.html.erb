@@ -12,17 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :number %><br>
-    <%= f.number_field :number %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :voter %><br>
     <%= f.number_field :voter %>
   </div>
-  <div class="field">
-    <%= f.label :invalid_vote %><br>
-    <%= f.number_field :invalid_vote %>
-  </div>
+  
   <div class="field">
     <%= f.label :ballot %><br>
     <%= f.number_field :ballot %>

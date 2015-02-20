@@ -33,7 +33,14 @@
     <%= f.text_field :email %>
   </div>
 
+ <div class="field">
+    <%= f.label :district %><br>
+    <%= f.collection_select :district_id, District.all, :id, :number %>
+  </div>
+ 
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

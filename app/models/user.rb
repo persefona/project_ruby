@@ -1,15 +1,12 @@
 class User < ActiveRecord::Base
-belongs_to :district
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-ROLES = %i[klient koordynator]
-acts_as_authentic do |config|
-config.validate_login_field = false
-config.validate_email_field = false
-config.validate_password_field = false
-config.crypted_password_field = :crypted_password
-config.require_password_confirmation = true
-end
-def role?(base_role)
-ROLES.index(base_role.to_s) <= ROLES.index(role)
-end
+
+  belongs_to :district
+  #belongs_to    :role
+ 
+  
 end

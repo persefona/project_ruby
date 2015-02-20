@@ -1,0 +1,4 @@
+class RemoveDistricts < ActiveRecord::Migration
+  def change
+  end
+end
