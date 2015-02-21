@@ -16,7 +16,7 @@
 
             <% if current_user %>
                 <li><%= link_to "Edycja", edit_user_path(current_user.id) %></li>
-                <li><%= link_to 'Show', @user %> </li>
+                <li><%= link_to 'Profil', @user %> </li>
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
                 <li><%= link_to 'Login', new_user_session_path %></li>

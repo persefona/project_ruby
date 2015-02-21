@@ -1,13 +1,13 @@
 ActiveAdmin.register Committee do
   permit_params :name, :shortname, :number_of_list, :logo, voivodship_ids: []
   menu label: "Komitety"
-  includes :voivodships #chce żeby  mi wyświetlało woj.danego komitetu
+  #includes :voivodships #chce żeby  mi wyświetlało woj.danego komitetu
 
 
 
-  action_item :view, only: :show do  #dodawanie nowego "click" z zadaną ścieżką
-  link_to 'View on site', committee_path(committee) 
-end
+  #action_item :view, only: :show do  #dodawanie nowego "click" z zadaną ścieżką
+  #link_to 'View on site', committee_path(committee) 
+#end
 
   form  do |f|
       f.inputs "Committee" do

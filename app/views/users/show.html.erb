@@ -22,5 +22,14 @@
  <%= @user.district.name unless @user.district_id.nil? %>
 </p>
 
+
+<p>
+  <strong>Rola:</strong>
+ <%= @user.role.name unless @user.role_id.nil? %>
+</p>
+
+
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

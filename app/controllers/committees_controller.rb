@@ -1,5 +1,6 @@
 class CommitteesController < ApplicationController
   before_action :set_committee, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate, :except => [:index]
 
   # GET /committees
   # GET /committees.json

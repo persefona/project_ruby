@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 
   belongs_to :district
-  #belongs_to    :role
+  belongs_to    :role
  
   
 end

@@ -1,5 +1,6 @@
 class VoivodshipsController < ApplicationController
   before_action :set_voivodship, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /voivodships
   # GET /voivodships.json
