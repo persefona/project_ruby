@@ -210,7 +210,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip
+  paperclip (~> 4.2)
   polish
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)

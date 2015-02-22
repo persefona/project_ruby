@@ -2,6 +2,11 @@ ActiveAdmin.register User do
   permit_params :name, :surname, :email, :district_id, :district, :role_id, :role
   menu label: "Użytkownicy"
 
+
+  filter :name, label: "Nazwa"
+  filter :district, label: "Okręg"
+  filter :role, label: "Rola"
+
    index do
     selectable_column
     id_column

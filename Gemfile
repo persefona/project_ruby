@@ -53,4 +53,4 @@ gem 'cancancan', '~> 1.10'
 gem 'polish'
 
 # Upload Files
-gem 'paperclip'
+gem "paperclip", "~> 4.2"
