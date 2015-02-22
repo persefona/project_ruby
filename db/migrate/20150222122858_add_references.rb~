@@ -1,0 +1,4 @@
+class AddReferences < ActiveRecord::Migration
+  def change
+  end
+end

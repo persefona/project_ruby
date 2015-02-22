@@ -3,9 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Number</th>
+      <th>Name</th>
       <th>Voter</th>
-      <th>Invalid vote</th>
       <th>Ballot</th>
       <th colspan="3"></th>
     </tr>
@@ -14,9 +13,8 @@
   <tbody>
     <% @districts.each do |district| %>
       <tr>
-        <td><%= district.number %></td>
+        <td><%= district.name %></td>
         <td><%= district.voter %></td>
-        <td><%= district.invalid_vote %></td>
         <td><%= district.ballot %></td>
         <td><%= link_to 'Show', district %></td>
         <td><%= link_to 'Edit', edit_district_path(district) %></td>

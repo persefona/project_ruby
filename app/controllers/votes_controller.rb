@@ -1,5 +1,8 @@
 class VotesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  before_action :set_committees, only: [:new, :edit, :update, :create]
 
   # GET /votes
   # GET /votes.json
@@ -62,6 +65,14 @@ class VotesController < ApplicationController
   end
 
   private
+
+    def set_committees
+      district = District.find_by_id(current_user.district_id)
+      @committees = district.voivodship.committees.map do |committee|
+        [committee.name, committee.id ]
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_vote
       @vote = Vote.find(params[:id])
@@ -69,6 +80,6 @@ class VotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
-      params.require(:vote).permit(:amount)
+      params.require(:vote).permit(:amount, :district_id, :user_id, :committee_id)
     end
 end

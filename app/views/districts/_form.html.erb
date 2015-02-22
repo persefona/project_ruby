@@ -11,24 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+
+   <div class="field">
+    <%= f.label :too_many_votes , " Powód: więcej niż jeden głos" %><br>
+    <%= f.number_field :too_many_votes %>
   </div>
-  <div class="field">
-    <%= f.label :voter %><br>
-    <%= f.number_field :voter %>
+
+   <div class="field">
+    <%= f.label :no_votes , "Powód: brak głosu" %><br>
+    <%= f.number_field :no_votes %>
   </div>
   
-  <div class="field">
-    <%= f.label :ballot %><br>
-    <%= f.number_field :ballot %>
-  </div>
-  </div>
-  <div class="field">
-    <%= f.label :voivodship_id %><br>
-    <%= f.text_field :voivodship_id %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

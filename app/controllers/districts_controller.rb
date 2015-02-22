@@ -1,4 +1,6 @@
 class DistrictsController < ApplicationController
+ before_filter :authenticate_user!
+ load_and_authorize_resource
  before_action :set_district, only: [:show, :edit, :update, :destroy]
  before_action :set_voivodships, only: [:new, :create, :edit, :update]
 
@@ -82,6 +84,6 @@ class DistrictsController < ApplicationController
 
 
       def district_params
-      params.require(:district).permit(:number, :voter, :invalid_vote, :ballot, :voivodship_id, :voivodship)
+      params.require(:district).permit(:number, :voter, :invalid_vote, :ballot, :voivodship_id, :voivodship, :too_many_votes, :no_votes)
     end
 end

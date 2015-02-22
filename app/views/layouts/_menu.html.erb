@@ -1,28 +1,36 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Home", root_path, class: 'navbar-brand' %>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Home", root_path, class: 'navbar-brand' %>
     </div>
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-         
+      <ul class="nav navbar-nav navbar-right">
 
-            <% if current_user %>
-                <li><%= link_to "Edycja", edit_user_path(current_user.id) %></li>
-                <li><%= link_to 'Profil', @user %> </li>
-                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-            <% else %>
-                <li><%= link_to 'Login', new_user_session_path %></li>
-                 <li><%= link_to 'Rejestracja', new_user_registration_path %></li>
+        <% if current_user %>
+          <% if current_user.local? %> 
+            <li><%= link_to "Głosy nieważne", controller: "districts", action: "edit", id: current_user.district_id %></li> 
+             <li><%= link_to "Głosy wazne", controller: "votes", action: "new" %></li>  
+          <% end %> 
+
+           <% if current_user.central? %> 
+            <li><%= link_to "Zastawienie glosow", districts_path %></li> 
             <% end %>
-        </ul>
+
+          <!--<li><%= link_to "Edycja", edit_user_registration_path %></li>-->
+          <!--<li><%= link_to 'Profil', current_user %> </li>-->
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Rejestracja', new_user_registration_path %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>

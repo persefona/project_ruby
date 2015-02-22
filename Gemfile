@@ -54,3 +54,8 @@ gem 'polish'
 
 # Upload Files
 gem "paperclip", "~> 4.2"
+
+gem 'better_errors'
+#gem 'binding_of_caller'
+
+gem 'pry'

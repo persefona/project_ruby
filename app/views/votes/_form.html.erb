@@ -12,9 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :amount %><br>
+    <%= f.label :committee_id, "Komitet" %><br>
+    <%= f.select :committee_id , @committees %>
+  </div>
+
+   <div class="field">
+    <%= f.hidden_field :user_id , :value => current_user.id %>
+  </div>
+
+   <div class="field">
+    <%= f.hidden_field :district_id , :value => current_user.district_id %>
+  </div>
+
+   <div class="field">
+    <%= f.label :amount, "Ilość głosów"  %><br>
     <%= f.number_field :amount %>
   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

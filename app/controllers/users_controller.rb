@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_filter :authenticate_user!
+load_and_authorize_resource
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 before_action :set_districts, only:[:new, :create, :edit, :update]
 #before_action :set_roles, only:[:new, :create, :edit, :update]
@@ -74,6 +76,8 @@ private
     		[district.name + ' ' + district.voivodship.name, district.id]
     	end
     end
+
+
 
 
 

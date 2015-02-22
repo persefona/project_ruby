@@ -1,29 +1,45 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
-  <%= @district.number %>
+  <strong>Nazwa:</strong>
+  <%= @district.name %>
 </p>
 
 <p>
-  <strong>Voter:</strong>
+  <strong>Liczba uprawnionych do głosowania:</strong>
   <%= @district.voter %>
 </p>
 
 <p>
-  <strong>Invalid vote:</strong>
-  <%= @district.invalid_vote %>
+  <strong>Liczba głosów nieważnych z powodu zbyt dużej ilości znaków:</strong>
+  <%= @district.too_many_votes %>
 </p>
 
 <p>
-  <strong>Ballot:</strong>
+  <strong>Liczba głosów nieważnych z powodu braku znkaków:</strong>
+  <%= @district.no_votes %>
+</p>
+
+<p>
+  <strong>Liczba wszytkich głósów nieważnych:</strong>
+  <% unless @district.no_votes.nil? %> 
+  <%= @district.no_votes + @district.too_many_votes %> 
+  <% end %>
+</p>
+
+<p>
+  <strong>Ilość wydanych kart:</strong>
   <%= @district.ballot %>
 </p>
 
-<p>
-  <strong>Voivodship:</strong>
-  <%= @district.voivodship_id %>
-</p>
+
+<br>
+<h3>Zbiorcze wyniki danego okręgu </h3>
+  <ol>
+  <% @district.votes.each do |vote| %>
+    <li><strong><%= vote.committee.name %></strong>: <%= vote.amount %></li>
+  <% end %>
+  </ol>
 
 <%= link_to 'Edit', edit_district_path(@district) %> |
 <%= link_to 'Back', districts_path %>

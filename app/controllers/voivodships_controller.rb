@@ -1,6 +1,8 @@
 class VoivodshipsController < ApplicationController
-  before_action :set_voivodship, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  load_and_authorize_resource
+  before_action :set_voivodship, only: [:show, :edit, :update, :destroy]
+
 
   # GET /voivodships
   # GET /voivodships.json
@@ -62,7 +64,7 @@ class VoivodshipsController < ApplicationController
     end
   end
 
-  private
+  #privateImage Uploading with the Paperclip Gem
     # Use callbacks to share common setup or constraints between actions.
     def set_voivodship
       @voivodship = Voivodship.find(params[:id])

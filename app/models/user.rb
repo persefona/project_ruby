@@ -7,6 +7,19 @@ class User < ActiveRecord::Base
 
   belongs_to :district
   belongs_to    :role
- 
+  has_many :votes
+
+  #if role_id == nil
+
+  def local?
+    return false if self.role.blank?
+    self.role.name == "Czlonek Komisji Okręgowej"
+  end
+
+  def central?
+    return false if self.role.blank?
+  	self.role.name == "Członek Komisji Centralnej"
+  end
+
   
 end
