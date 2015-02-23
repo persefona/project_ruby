@@ -5,13 +5,15 @@ class Ability
     if user.local?
         can :read, Vote
         can :create, Vote
+        can :read, District
         can :update, Vote do |vote|
             vote.try(:user) == user
         end
         can :update, District do |district|
             district.id == user.district_id
         end
-        can :read, District
+        
+        
 
     elsif user.central?
         can :read, District

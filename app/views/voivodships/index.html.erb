@@ -1,9 +1,10 @@
-<h1>Listing voivodships</h1>
+<h1>Lista województw</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nazwa województwa</th>
+      <th>Frekwencja</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,14 +13,18 @@
     <% @voivodships.each do |voivodship| %>
       <tr>
         <td><%= voivodship.name %></td>
-        <td><%= link_to 'Show', voivodship %></td>
-        <td><%= link_to 'Edit', edit_voivodship_path(voivodship) %></td>
-        <td><%= link_to 'Destroy', voivodship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if voivodship.districts.blank? %>
+          <td>Brak danych</td>
+        <% else %>
+        <td><%= @counts[voivodship.name]  %>%</td><% end %>
+        <td><%= link_to 'Rozwiń', voivodship %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+
 <br>
 
-<%= link_to 'New Voivodship', new_voivodship_path %>
+

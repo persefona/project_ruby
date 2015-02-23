@@ -1,9 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nazwa:</strong>
+
+<p><h3>
+  Okręg: 
   <%= @district.name %>
+</h3></p>
+
+<p>
+  <strong>Liczba głosów nieważnych z powodu zbyt dużej ilości znaków:</strong>
+  <%= @district.too_many_votes %>
 </p>
+
+<p>
+  <strong>Liczba głosów nieważnych z powodu braku znkaków:</strong>
+  <%= @district.no_votes %>
+</p>
+
+
+
+ <% if current_user.central? %>
+
+<p><h3>
+  Okręg: 
+  <%= @district.name %>
+</h3></p>
 
 <p>
   <strong>Liczba uprawnionych do głosowania:</strong>
@@ -33,6 +53,11 @@
 </p>
 
 
+
+  <h3>Uwaga: <%= @warring %> !<h3>
+
+
+
 <br>
 <h3>Zbiorcze wyniki danego okręgu </h3>
   <ol>
@@ -41,5 +66,13 @@
   <% end %>
   </ol>
 
-<%= link_to 'Edit', edit_district_path(@district) %> |
-<%= link_to 'Back', districts_path %>
+<br>
+
+<h3> Frekwencja </h3>
+  <%= ((@district.ballot.to_f/@district.voter.to_f)*100).round(0) %>%
+
+ <br>
+ <br>
+<%= link_to 'Powrót', districts_path %>
+
+<% end %>

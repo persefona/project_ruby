@@ -8,11 +8,17 @@ class VoivodshipsController < ApplicationController
   # GET /voivodships.json
   def index
     @voivodships = Voivodship.all
+    @counts = Hash.new 
+    @voivodships.each do |v|
+      @counts[v.name] = set_count(v)
+    end
   end
 
   # GET /voivodships/1
   # GET /voivodships/1.json
   def show
+    set_result
+    set_count(@voivodship)
   end
 
   # GET /voivodships/new
@@ -66,8 +72,28 @@ class VoivodshipsController < ApplicationController
 
   #privateImage Uploading with the Paperclip Gem
     # Use callbacks to share common setup or constraints between actions.
+    private
     def set_voivodship
       @voivodship = Voivodship.find(params[:id])
+    end
+
+    def set_result
+      sum = 0
+      @results = Hash.new
+      @voivodship.committees.each do |c|
+        @voivodship.votes.where("committee_id=?",c.id).each {|v| sum+=v.amount}
+        @results[c.name] = sum
+        sum = 0
+      end
+    end
+
+    
+    def set_count(voivodship)
+      ballot = 0
+      voter = 0
+      voivodship.districts.each { |d| ballot+=d.ballot }
+      voivodship.districts.each { |d| voter+=d.voter }
+      @suma = (((ballot.to_f/voter.to_f)*100).round(2))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   belongs_to    :role
   has_many :votes
 
+
+  validates :district,  uniqueness: true
+
   #if role_id == nil
 
   def local?

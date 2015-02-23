@@ -3,6 +3,7 @@ class District < ActiveRecord::Base
 	has_one :user
 
 	 validates :name, presence: true, uniqueness: true
+	 
 	 has_many :votes
 		
 end

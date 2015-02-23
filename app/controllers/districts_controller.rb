@@ -13,6 +13,24 @@ class DistrictsController < ApplicationController
   # GET /districts/1
   # GET /districts/1.json
   def show
+    @vote_all = 0
+    @district.votes.each do |v|
+      @vote_all+=v.amount
+    end
+
+    if (@district.too_many_votes != nil )
+    @vote_all+=@district.too_many_votes
+    end
+
+    if (@district.no_votes != nil )
+    @vote_all+=@district.no_votes
+    end
+
+    if (@vote_all>@district.ballot) 
+      @warring="Wprowadzono więcej głosów, niż wydano kart" 
+    elsif (@vote_all<@district.ballot)
+      @warring="Nie wprowadzono wszytkich głósów"
+    end 
   end
 
   # GET /districts/new

@@ -1,18 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h3>
+  Nazwa województwa:
   <%= @voivodship.name %>
-</p>
-
+</h3>
+<br>
 <p>
-  <strong>Komitety:</strong>
-	 <% @voivodship.committees.each do |committee| %>
-	  <li><%= committee.name %> </li> 
-	   <% end %>
-	
+  <strong>Zbiorcze wyniki dla poszczególnych komitetów:</strong>
+  <ol>
+  <% @results.each do |name, result| %>
+  <li>	<%= name %>: <%= result %> głosów</li>
+  	<% end %>
+  </ol>
 </p>
 
+<h3>Frekwencja</h3>
+<% if @voivodship.districts.blank? %>
+          Brak danych
+ <% else %>
+<%= @suma %>%
+<% end %>
+<br>
+<br>
 
-<%= link_to 'Edit', edit_voivodship_path(@voivodship) %> |
-<%= link_to 'Back', voivodships_path %>
+<%= link_to 'Powrót', voivodships_path %>
